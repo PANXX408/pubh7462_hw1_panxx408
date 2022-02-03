@@ -48,6 +48,15 @@ round(mean(penguin_df$flipper_length_mm, na.rm = TRUE), digits = 2)
 -   Penguin data set describes the Size measurements for adult foraging
     penguins near Palmer Station, Antarctica.
 -   There are 344 rows and 8 columns
+-   Variables are: **species**: a factor denoting penguin species
+    (Adélie, Chinstrap and Gentoo);**island**: a factor denoting island
+    in Palmer Archipelago, Antarctica (Biscoe, Dream or
+    Torgersen);**bill_length_mm**: a number denoting bill length
+    (millimeters); **bill_depth_mm**: a number denoting bill depth
+    (millimeters); **flipper_length_mm**: an integer denoting flipper
+    length (millimeters); **body_mass_g**: an integer denoting body mass
+    (grams); **sex**: a factor denoting penguin sex (female, male);
+    **year**: an integer denoting the study year (2007, 2008, or 2009).
 -   The mean of flipper length is 200.92(mm), and the standard deviation
     is 14.06(mm). The mean of bill length is 43.92(mm) and the standard
     deviation is 5.46(mm).
