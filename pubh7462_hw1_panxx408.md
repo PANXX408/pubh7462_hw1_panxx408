@@ -1,20 +1,11 @@
----
-title: "PubH7462_HW1_panxx408"
-author: "Mingming Pan"
-date: "2/2/2022"
-output: github_document
----
-
-```{r setup, include = FALSE}
-library(tidyverse)
-library(forcats)
-library(dplyr)
-
-```
-
+PubH7462_HW1_panxx408
+================
+Mingming Pan
+2/2/2022
 
 #### Problem 2.1 Independent Bivariate Normal Random Sample
-```{r}
+
+``` r
 #Create Tibble
 set.seed(7462)
 Tibble_2.1 <- tibble(x = rnorm(1000, 0, 1),
@@ -28,7 +19,7 @@ Tibble_2.1$sum_indicator_new <- forcats::fct_relevel(Tibble_2.1$sum_indicator_ne
                                                      "Yes", "No")
 ```
 
-```{r}
+``` r
 #Scatter plot of Y ~ X
 Plot_2.1 <- ggplot(data = Tibble_2.1, aes(x = x, y= y, color = sum_indicator_new)) +
   geom_point() +
@@ -40,20 +31,30 @@ Plot_2.1 <- ggplot(data = Tibble_2.1, aes(x = x, y= y, color = sum_indicator_new
         legend.position = "bottom" )
 Plot_2.1
 ```
+
+![](pubh7462_hw1_panxx408_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 #### Problem2.2 Penguin EDA
-```{r}
+
+``` r
 #read data with relative path
 penguin_df <- read_rds("./data/penguin.RDS")
 round(mean(penguin_df$flipper_length_mm, na.rm = TRUE), digits = 2)
 ```
 
+    ## [1] 200.92
+
 #### Problem 2.2.1 Data Description
-+ Penguin data set describes the Size measurements for adult foraging penguins near Palmer Station, Antarctica.
-+ There are `r nrow(penguin_df)` rows and `r ncol(penguin_df)` columns
-+ The mean of flipper length is `r round(mean(penguin_df$flipper_length_mm, na.rm = TRUE), digits = 2)`(mm), and the standard deviation is `r round(sd(penguin_df$flipper_length_mm, na.rm = TRUE), digits = 2)`(mm). The mean of bill length is `r round(mean(penguin_df$bill_length_mm, na.rm = TRUE), digits = 2)`(mm) and the standard deviation is `r round(sd(penguin_df$bill_length_mm, na.rm = TRUE), digits = 2)`(mm).
+
+-   Penguin data set describes the Size measurements for adult foraging
+    penguins near Palmer Station, Antarctica.
+-   There are 344 rows and 8 columns
+-   The mean of flipper length is 200.92(mm), and the standard deviation
+    is 14.06(mm). The mean of bill length is 43.92(mm) and the standard
+    deviation is 5.46(mm).
 
 #### Problem2.2.2 Visualization
-```{r, warning=FALSE}
+
+``` r
 #Remove NA of bill length, flipper Length, and sex
 penguin_clean <- penguin_df %>%
   filter(!is.na(flipper_length_mm), !is.na(bill_length_mm), !is.na(sex))
@@ -71,19 +72,7 @@ Plot_2.2 <- ggplot(data = penguin_clean, aes(x = bill_length_mm, y = flipper_len
 Plot_2.2
 ```
 
+![](pubh7462_hw1_panxx408_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-Male penguins tend to have larger bill length and larger flipper length than female penguins overall (ignoring the species). 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Male penguins tend to have larger bill length and larger flipper length
+than female penguins overall (ignoring the species).
