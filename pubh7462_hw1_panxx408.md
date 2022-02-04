@@ -38,10 +38,7 @@ Plot_2.1
 ``` r
 #read data with relative path
 penguin_df <- read_rds("./data/penguin.RDS")
-round(mean(penguin_df$flipper_length_mm, na.rm = TRUE), digits = 2)
 ```
-
-    ## [1] 200.92
 
 #### Problem 2.2.1 Data Description
 
